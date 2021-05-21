@@ -1,2 +1,2 @@
 # competitive-programming
-My repository for doing competitive programming
+This is just for fun
