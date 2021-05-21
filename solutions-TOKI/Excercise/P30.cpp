@@ -30,6 +30,14 @@ int main()
 				}
 			}
 		}
+		
+		// buat map menjadi tabel kumulatif
+		for (ver=1; ver<=b; ver++){
+			for (hor=1; hor<=k; hor++){
+				if (hor>1 && mp[ver][hor] && mp[ver][hor-1])
+					mp[ver][hor] = mp[ver][hor-1]+1;
+			}
+		}
 
 		/*
 		Tabel sebelum dijadikan tabel kumulatif
@@ -43,28 +51,20 @@ int main()
 		1 0 0 0 1 1 1 1 1 1
 		1 0 0 0 1 1 1 1 1 1
 		1 1 0 0 0 0 0 0 0 0
-		*/
-		
-		// buat map menjadi tabel kumulatif
-		for (ver=1; ver<=b; ver++){
-			for (hor=1; hor<=k; hor++){
-				if (hor>1 && mp[ver][hor] && mp[ver][hor-1])
-					mp[ver][hor] = mp[ver][hor-1]+1;
-			}
-		}
+		*/	
 
 		/*
 		Tabel setelah dijadikan tabel kumulatif
-		0 0 0 1 2 3 4 5 6 7
-		0 0 0 1 2 0 0 0 0 1
-		0 0 0 1 2 3 4 5 6 7
-		0 0 0 1 0 0 0 0 1 2
-		0 0 0 1 0 0 0 0 1 2
-		1 2 3 4 0 0 0 0 1 2
-		1 2 3 4 5 6 7 8 9 10
-		1 0 0 0 1 2 3 4 5 6
-		1 0 0 0 1 2 3 4 5 6
-		1 2 0 0 0 0 0 0 0 0
+	0 0 0 1 2 3 4 5 6 7
+	0 0 0 1 2 0 0 0 0 1
+	0 0 0 1 2 3 4 5 6 7
+	0 0 0 1 0 0 0 0 1 2
+	0 0 0 1 0 0 0 0 1 2
+	1 2 3 4 0 0 0 0 1 2
+	1 2 3 4 5 6 7 8 9 10
+	1 0 0 0 1 2 3 4 5 6
+	1 0 0 0 1 2 3 4 5 6
+	1 2 0 0 0 0 0 0 0 0
 		*/	
 
 
@@ -77,7 +77,6 @@ int main()
 				int temp=mp[ver][hor];
 				int min_length = temp;
 
-				// 
 				for (int v=ver-1; v>=1; v--){
 					if (!mp[v][hor])
 						break;
